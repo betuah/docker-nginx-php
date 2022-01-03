@@ -28,6 +28,10 @@ Start the Docker container:
 
 See the PHP info on http://localhost/info.php, or the static html page with upload file on http://localhost
 
+Start with Docker Compose
+
+    docker-compose up -d --build
+
 Or mount your own code to be served by PHP-FPM & Nginx
 
     docker run -p 80:8080 -v ~/my-codebase:/var/www/html betuah/php-nginx
