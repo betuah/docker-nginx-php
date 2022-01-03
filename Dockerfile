@@ -47,7 +47,7 @@ COPY config/nginx/default.conf /etc/nginx/httpd.d/default.conf
 COPY config/nginx/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
-COPY config/php/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
+COPY config/php/php-fpm.conf /etc/php7/php-fpm.d/www.conf
 COPY config/php/php.ini /etc/php7/conf.d/custom.ini
 
 # Configure supervisord
