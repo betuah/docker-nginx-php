@@ -1,17 +1,16 @@
 version: '3.8'
 
 services:
-    lms:
+    apps:
         build: 
             context: .
             dockerfile: Dockerfile
             args:
                 PHP_VERSION: 7.4-fpm-alpine
-        image: betuah/setara_lms:release
-        container_name: setara_lms
-        # volumes: 
-            # - ./Server/public:/usr/src/app/public
-            # - ./ssl:/usr/src/app/ssl
+        image: apps:release
+        container_name: setara_apps
+        volumes: 
+            - ./ssl:/var/www/ssl
         ports:
             - 80:8080
         networks: 
