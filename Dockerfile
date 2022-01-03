@@ -2,11 +2,6 @@ FROM alpine:3.15
 
 LABEL Maintainer="Betuah Anugerah <betuahanugerah@gmail.com>"
 
-# RUN apk add --no-cache \
-#         $PHPIZE_DEPS \
-#     && pecl install pthreads \
-#     && docker-php-ext-enable pthreads
-
 # Install packages and remove default server definition
 RUN apk --no-cache add \
     curl nginx supervisor zip unzip curl sqlite php7 php7-dev \
@@ -43,12 +38,6 @@ RUN apk --no-cache add \
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 RUN rm -rf composer-setup.php
-
-# Installing mongodb Driver
-# RUN apk --update add --virtual build-dependencies build-base openssl-dev autoconf \
-#   && pecl install mongodb \
-#   && apk del build-dependencies build-base openssl-dev autoconf \
-#   && rm -rf /var/cache/apk/*
 
 # Configure nginx
 COPY config/nginx/default.conf /etc/nginx/httpd.d/default.conf
